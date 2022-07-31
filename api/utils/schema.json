@@ -1,0 +1,113 @@
+{
+    "title": "FileData",
+    "type": "object",
+    "properties": {
+       "file_name": {
+          "title": "File Name",
+          "type": "string"
+       },
+       "file_path": {
+          "title": "File Path",
+          "anyOf": [
+             {
+                "type": "string"
+             },
+             {
+                "type": "string",
+                "format": "path"
+             }
+          ]
+       },
+       "date": {
+          "title": "Date",
+          "type": "string"
+       },
+       "text_raw": {
+          "title": "Text Raw",
+          "type": "string"
+       },
+       "splitted_text": {
+          "title": "Splitted Text",
+          "type": "array",
+          "items": {
+             "type": "string"
+          }
+       },
+       "link": {
+          "title": "Link",
+          "type": "string"
+       },
+       "appointment_lines": {
+          "title": "Appointment Lines",
+          "default": [],
+          "type": "array",
+          "items": {
+             "$ref": "#/definitions/AppoitmentLine"
+          }
+       },
+       "author": {
+          "title": "Author",
+          "type": "string"
+       }
+    },
+    "definitions": {
+       "Person": {
+          "title": "Person",
+          "type": "object",
+          "properties": {
+             "raw_name": {
+                "title": "Raw Name",
+                "default": "",
+                "type": "string"
+             },
+             "lemm_name": {
+                "title": "Lemm Name",
+                "default": "",
+                "type": "string"
+             },
+             "gender": {
+                "title": "Gender",
+                "default": "",
+                "type": "string"
+             },
+             "fio": {
+                "title": "Fio",
+                "default": {},
+                "type": "object"
+             }
+          }
+       },
+       "AppoitmentLine": {
+          "title": "AppoitmentLine",
+          "type": "object",
+          "properties": {
+             "raw_line": {
+                "title": "Raw Line",
+                "default": "",
+                "type": "string"
+             },
+             "appointees": {
+                "title": "Appointees",
+                "default": [],
+                "type": "array",
+                "items": {
+                   "$ref": "#/definitions/Person"
+                }
+             },
+             "resignees": {
+                "title": "Resignees",
+                "default": [],
+                "type": "array",
+                "items": {
+                   "$ref": "#/definitions/Person"
+                }
+             },
+             "position": {
+                "title": "Position",
+                "default": "",
+                "type": "string"
+             }
+          }
+       }
+    }
+ }
