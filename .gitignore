@@ -3,6 +3,29 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# my stuff
+/data
+/win_venv
+api/tests
+api/temp.py
+api/temp_temp.py
+api/aa.py
+api/downloader.py
+api/converter.py
+api/go_pavlov.py
+*.pkl
+downloads/
+
+bin/
+include/
+script/
+Lib/
+
+*.txt
+!requirements.txt
+downloads/
+pyvenv.cfg
+
 # C extensions
 *.so
 
