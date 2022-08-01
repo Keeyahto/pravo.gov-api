@@ -1,0 +1,8 @@
+requests==2.27.1
+beautifulsoup4==4.11.1
+pydantic==1.9.1
+aiohttp==3.8.1
+natasha==1.4.0
+tqdm==4.64.0
+backoff==2.1.2
+structlog==22.1.0
