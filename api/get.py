@@ -3,7 +3,7 @@ import json
 from api.config import configs
 from api.downloader.aio_downloader import FilesDownloader
 from api.utils.my_logger import get_struct_logger
-from links_getter import LinksGetter
+from api.links_getter import LinksGetter
 
 REGION_CODE = configs.REGION_CODE
 MAIN_LOG_FILE = configs.MAIN_LOG_FILE

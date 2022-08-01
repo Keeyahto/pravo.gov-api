@@ -51,7 +51,7 @@ class Configs(BaseSettings):
 
     SEARCH_WORD: str | None = 'назначить' #
     SEARCH_TAG: str | None = 'назначение' #
-    FROM_DATE: str | None = '01.01.2012'
+    FROM_DATE: str | None = '01.07.2022'
     TO_DATE: str | None = '01.08.2022'
 
     # добавить обработку, когда нет документов
@@ -75,7 +75,7 @@ class Configs(BaseSettings):
 
     # Прочее
     LOGGING_LEVEL: str = 'ERROR'
-    MAIN_LOG_FILE: str = 'logs/main.json'
+    MAIN_LOG_FILE: str = 'api/logs/main.json'
 
 
     @validator('DATA_FOLDER', 'RAW_FILES_FOLDER', 'LINKS_FOLDER')
@@ -96,7 +96,7 @@ class Configs(BaseSettings):
         '''находит айди учреждения. напр - Президент == '102000070' '''
         if not v:
             return ''
-        with open('api_data/gov_bodies_n_their_codes.json', encoding='utf-8') as f:
+        with open('api/api_data/gov_bodies_n_their_codes.json', encoding='utf-8') as f:
             gov_bodies_codes = json.load(f)
             if v in gov_bodies_codes.keys():
                 values['FEDERAL_GOVERNMENT_BODY_CODE'] = gov_bodies_codes[v]
@@ -109,7 +109,7 @@ class Configs(BaseSettings):
         '''находит айди региона. напр - Брянская область == 'r013200' '''
         if not values['REGION']:
             return ''
-        with open('api_data/regions_n_their_numbers.json', encoding='utf-8') as f:
+        with open('api/api_data/regions_n_their_numbers.json', encoding='utf-8') as f:
             try:
                 codes = json.load(f)
                 region_code = codes[values['REGION']]
