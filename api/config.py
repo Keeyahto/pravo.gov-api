@@ -51,17 +51,15 @@ class Configs(BaseSettings):
 
     SEARCH_WORD: str | None = 'назначить' #
     SEARCH_TAG: str | None = 'назначение' #
-    FROM_DATE: str | None = '01.07.2022'
+    FROM_DATE: str | None = '01.01.2005'
     TO_DATE: str | None = '01.08.2022'
 
-    # добавить обработку, когда нет документов
-
-    REGION: str | None = 'РФ' #Свердловская область
+    REGION: str | None = 'Московская область' #Свердловская область
     REGION_CODE: str = None # 
-    FEDERAL_GOVERNMENT_BODY = 'Президент'  # Президент
+    FEDERAL_GOVERNMENT_BODY = ''  # Президент
     FEDERAL_GOVERNMENT_BODY_CODE: int = 0
-    
-    SAVE_FORMAT = 'html'  
+
+    SAVE_FORMAT = 'html'
 
     # Папки
     DATA_FOLDER: Path = Path(__file__).parents[1] / 'data'
@@ -108,7 +106,7 @@ class Configs(BaseSettings):
     def get_region_code(cls, v, values):
         '''находит айди региона. напр - Брянская область == 'r013200' '''
         if not values['REGION']:
-            return ''
+            return 'cd00000'
         with open('api/api_data/regions_n_their_numbers.json', encoding='utf-8') as f:
             try:
                 codes = json.load(f)
@@ -117,6 +115,7 @@ class Configs(BaseSettings):
             except KeyError:
                 raise KeyError(
                     f'''{values['REGION']} направильно указан регион. допустимые значения {list(codes.keys())}''')
+
 
     @validator('MAIN_LOG_FILE')
     def get_abs_path(cls, v, values):
