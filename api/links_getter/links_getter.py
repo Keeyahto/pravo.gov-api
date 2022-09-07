@@ -32,7 +32,7 @@ class GetMetaInfo:
 
     def __init__(self, logger):
         self.logger = logger
-
+    #0001202208040007
     @backoff.on_exception(backoff.expo, requests.exceptions.RequestException, max_tries=4, max_time=30)
     def _get_raw_meta_data(self, doc_id) -> str:  # html
         url_meta = f'http://pravo.gov.ru/proxy/ips/?doc_itself=&vkart=card&nd={doc_id}\
@@ -41,7 +41,7 @@ class GetMetaInfo:
         return r
 
     def get_tags(self, soup: BeautifulSoup) -> list[str] | list[None]:
-        tags = soup.find('div', id='klsl')
+        tags = soup.find('div', id='klsl') 
         if not tags:
             return []
         return [tag.strip() for tag in tags.text.lower().split(',')]
@@ -64,7 +64,7 @@ class GetMetaInfo:
             tags = self.get_tags(soup)
             author = self.get_doc_author(soup)
             date = self.get_doc_date(soup)
-            return {'doc_id': doc_id, 'tags': tags, 'author': author, 'date': date}
+            return {'doc_id': doc_id, 'tags': tags, 'author': author, 'date': date, 'region':configs.REGION}
         except Exception as ex:
             tb = sys.exc_info()[-1]
             self.logger.error(f'{ex}\n\n{tb}\ndoc_id --- {doc_id}')

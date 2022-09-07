@@ -10,3 +10,4 @@ class DocInfo(BaseModel):
     author: str = None
     date: str = None
     url: str = None
+    region: str = None

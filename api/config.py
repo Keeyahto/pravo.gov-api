@@ -25,10 +25,10 @@ class Configs(BaseSettings):
 
             3.
                 Поиск по региональным базам:
-                    REGION (str | None): <название субъекта>
+                    REGION (str): <название субъекта>
                 
                 Поиск по федеральным базам:
-                    REGION (str | None) = "РФ"
+                    REGION (str) = "РФ"
                     FEDERAL_GOVERNMENT_BODY (str | None) = <название органа> (e.g. Президент, Правительство)
                 
                 Полный список органов и регионов в /api_data или на https://github.com/kbondar17/pravo-gov-API         
@@ -49,14 +49,14 @@ class Configs(BaseSettings):
 
     '''
 
-    SEARCH_WORD: str | None = 'назначить' #
+    SEARCH_WORD: str | None = 'назначить' # 
     SEARCH_TAG: str | None = 'назначение' #
-    FROM_DATE: str | None = '01.01.2005'
+    FROM_DATE: str | None = '01.01.2021'
     TO_DATE: str | None = '01.08.2022'
 
-    REGION: str | None = 'Московская область' #Свердловская область
+    REGION: str = 'РФ' #Свердловская область
     REGION_CODE: str = None # 
-    FEDERAL_GOVERNMENT_BODY = ''  # Президент
+    FEDERAL_GOVERNMENT_BODY = 'Президент'  # Президент
     FEDERAL_GOVERNMENT_BODY_CODE: int = 0
 
     SAVE_FORMAT = 'html'
