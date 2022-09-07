@@ -5,7 +5,7 @@
 
 ## Требования
 * Python >= 3.10.2
-* [requirements.txt](https://github.com/kbondar17/pravo-gov-API/blob/main/requirements.txt)
+* [requirements.txt](https://github.com/kbondar17/pravo-gov-API/blob/main/requirements.txt) или [poetry.lock](https://github.com/kbondar17/pravo-gov-API/blob/main/poetry.lock) 
 
 ## Использование
 
